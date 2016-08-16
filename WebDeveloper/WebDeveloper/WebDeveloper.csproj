@@ -184,7 +184,7 @@
     <Compile Include="Areas\Internal\Models\UserModelView.cs" />
     <Compile Include="Areas\Autor\Controllers\LibroController.cs" />
     <Compile Include="Areas\Autor\Controllers\AutorController.cs" />
-    <Compile Include="Areas\Autor\PersonAreaRegistration.cs" />
+    <Compile Include="Areas\Autor\AutorAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseAccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

@@ -15,9 +15,9 @@ namespace WebDeveloper.Areas.Autor
             );
 
             context.MapRoute(
-                "Address_default",
-                "Address/{action}/{id}",
-                new { controller = "Address", action = "Index", id = UrlParameter.Optional }
+                "Libro_default",
+                "Libro/{action}/{id}",
+                new { controller = "Libro", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

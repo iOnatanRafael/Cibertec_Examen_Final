@@ -10,7 +10,7 @@ namespace WebDeveloper.Areas.Autor.Controllers
 {
     public class LibroController : Controller
     {
-        // GET: Autor/Address
+        // GET: Autor/Libro
         private LibroRepository _libro;
         public LibroController(LibroRepository libro)
         {
