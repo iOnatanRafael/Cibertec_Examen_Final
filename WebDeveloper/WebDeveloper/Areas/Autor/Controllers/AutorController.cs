@@ -15,8 +15,8 @@ namespace WebDeveloper.Areas.Autor.Controllers
     [Authorize]
     public class AutorController : Controller
     {
-        private readonly AutorRepository _AutorRepository;
-        public AutorController(AutorRepository AutorRepository)
+        private readonly AutorRepositorio _AutorRepository;
+        public AutorController(AutorRepositorio AutorRepository)
         {
             _AutorRepository = AutorRepository;
         }
@@ -24,91 +24,65 @@ namespace WebDeveloper.Areas.Autor.Controllers
         [OutputCache(Duration = 0)]
         public ActionResult Index()
         {
-            ViewBag.Count = TotalPages(10);
+            ViewBag.Count = TotalPaginas(10);
             return View();
         }
 
         [OutputCache(Duration = 0)]
-        public ActionResult List(int? page, int? size)
+        public ActionResult Lista(int? page, int? size)
         {
             if (!page.HasValue || !size.HasValue)
             {
                 page = 1;
                 size = 10;
             }            
-            return PartialView("_List",_AutorRepository.GetListDto().Page(page.Value, size.Value));
+            return PartialView("_Lista", _AutorRepository.ObtenerListaDto().Page(page.Value, size.Value));
         }
 
-        public PartialViewResult Create()
+        public PartialViewResult Crear()
         {
-            return PartialView("_Create");
+            return PartialView("_Crear");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(WebDeveloper.Model.Autor Autor)
+        public ActionResult Crear(WebDeveloper.Model.Autor Autor)
         {
-            if (!ModelState.IsValid) return PartialView("_Create", Autor);
-            _AutorRepository.Add(Autor);
+            if (!ModelState.IsValid) return PartialView("_Crear", Autor);
+            _AutorRepository.Adicionar(Autor);
             return new HttpStatusCodeResult(HttpStatusCode.OK); //RedirectToAction("Index");
         }
 
         [OutputCache(Duration = 0)]
-        public ActionResult Edit(int id)
+        public ActionResult Editar(int id)
         {
-            var Autor = _AutorRepository.GetById(id);
+            var Autor = _AutorRepository.ObtenerPorId(id);
             if (Autor == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            return PartialView("_Edit", Autor);
+            return PartialView("_Editar", Autor);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [OutputCache(Duration = 0)]
-        public ActionResult Edit(WebDeveloper.Model.Autor Autor)
+        public ActionResult Editar(WebDeveloper.Model.Autor Autor)
         {
-            if (!ModelState.IsValid) return PartialView("_Edit", Autor);
-            _AutorRepository.Update(Autor);
-            return RedirectToRoute("Autor_default");
+            if (!ModelState.IsValid) return PartialView("_Editar", Autor);
+            _AutorRepository.Actualizar(Autor);
+            return RedirectToRoute("Autor_defecto");
         }
-
-
+        
         [OutputCache(Duration = 0)]
-        public ActionResult Delete(int id)
+        public ActionResult Eliminar(int id)
         {
-            var Autor = _AutorRepository.GetById(id);
+            var Autor = _AutorRepository.ObtenerPorId(id);
             if (Autor == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            return PartialView("_Delete", Autor);
+            return PartialView("_Eliminar", Autor);
         }
-
-        public ActionResult Upload()
-        {
-            return PartialView("_FileUpload");
-        }
-
-        [HttpPost]
-        [OutputCache(Duration = 0)]
-        public ActionResult UploadFile()
-        {
-            if (Request.Files.Count == 0) return PartialView("_FileUpload");
-            var file = Request.Files[0];
-            try
-            {
-                var folder = Server.MapPath("~/Files");
-                if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
-                string path = Path.Combine(folder, Path.GetFileName(file.FileName));
-                file.SaveAs(path);
-            }
-            catch
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
-        }
-
+        
         #region Common Methods
-        private int TotalPages(int? size)
+        private int TotalPaginas(int? size)
         {
-            var rows = _AutorRepository.TotalCount();
+            var rows = _AutorRepository.TotalCantidad();
             var totalPages = rows / size.Value;
             return totalPages;
         }

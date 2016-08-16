@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebDeveloper.Model.Libro>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublicacionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Avance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AñoVenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaPublicacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublicacionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Avance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AñoVenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaPublicacion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LibroID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LibroID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LibroID })
+        </td>
+    </tr>
+}
+
+</table>

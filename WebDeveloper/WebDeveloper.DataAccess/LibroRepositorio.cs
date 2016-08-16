@@ -8,26 +8,25 @@ using WebDeveloper.Model.DTO;
 
 namespace WebDeveloper.DataAccess
 {
-    public class LibroRepository : BaseDataAccess<Libro>
+    public class LibroRepositorio : BaseAccesoDatos<Libro>
     {
-        public IEnumerable<LibroModelView> GetListDto()
+        public IEnumerable<LibroModelView> ObtenerListaDto()
         {
             using (var dbContext = new WebContextDb())
             {
-                return Automapper.GetGeneric<IEnumerable<Libro>, List<LibroModelView>>(dbContext.Libro.OrderByDescending(x => x.FechaPublicacion));
+                return Automapper.GetGeneric<IEnumerable<Libro>, List<LibroModelView>>(dbContext.Libro.OrderByDescending(x => x.LibroID));
             }
         }
 
-
-        public IEnumerable<LibroModelView> GetListDtoPage(int page, int size)
+        public IEnumerable<LibroModelView> ObtenerListaDtoPagina(int page, int size)
         {
             using (var dbContext = new WebContextDb())
             {
                 return Automapper.GetGeneric<IEnumerable<Libro>, List<LibroModelView>>(dbContext.Libro.OrderByDescending(x => x.LibroID).Page(page, size));
             }
         }
-
-        public Libro GetById(int id)
+        
+        public Libro ObtenerPorId(int id)
         {
             using (var dbContext = new WebContextDb())
             {
@@ -35,7 +34,7 @@ namespace WebDeveloper.DataAccess
             }
         }
 
-        public int TotalCount()
+        public int TotalCantidad()
         {
             using (var dbContext = new WebContextDb())
             {

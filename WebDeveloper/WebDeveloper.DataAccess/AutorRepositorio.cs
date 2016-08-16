@@ -8,9 +8,9 @@ using WebDeveloper.Model.DTO;
 
 namespace WebDeveloper.DataAccess
 {
-    public class AutorRepository : BaseDataAccess<Autor>
+    public class AutorRepositorio : BaseAccesoDatos<Autor>
     {
-        public IEnumerable<AutorModelView> GetListDto()
+        public IEnumerable<AutorModelView> ObtenerListaDto()
         {
             using (var dbContext = new WebContextDb())
             {
@@ -18,8 +18,7 @@ namespace WebDeveloper.DataAccess
             }
         }
 
-
-        public IEnumerable<AutorModelView> GetListDtoPage(int page, int size)
+        public IEnumerable<AutorModelView> ObtenerListaDtoPagina(int page, int size)
         {
             using (var dbContext = new WebContextDb())
             {
@@ -27,7 +26,7 @@ namespace WebDeveloper.DataAccess
             }
         }
         
-        public Autor GetById(int id)
+        public Autor ObtenerPorId(int id)
         {
             using (var dbContext = new WebContextDb())
             {
@@ -35,7 +34,7 @@ namespace WebDeveloper.DataAccess
             }
         }
 
-        public int TotalCount()
+        public int TotalCantidad()
         {
             using (var dbContext = new WebContextDb())
             {

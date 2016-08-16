@@ -180,9 +180,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\Startup.Injector.cs" />
+    <Compile Include="Areas\Autor\Controllers\LibroController.cs" />
     <Compile Include="Areas\Internal\InternalAreaRegistration.cs" />
     <Compile Include="Areas\Internal\Models\UserModelView.cs" />
-    <Compile Include="Areas\Autor\Controllers\LibroController.cs" />
     <Compile Include="Areas\Autor\Controllers\AutorController.cs" />
     <Compile Include="Areas\Autor\AutorAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -234,6 +234,15 @@
       <BrowseToURL>~/App_Code/CustomHelpers.cshtml</BrowseToURL>
     </Content>
     <Content Include="Areas\Autor\Views\Autor\Index.cshtml" />
+    <Content Include="Areas\Autor\Views\Autor\_Lista.cshtml" />
+    <Content Include="Areas\Autor\Views\Autor\_Crear.cshtml" />
+    <Content Include="Areas\Autor\Views\Autor\_Editar.cshtml" />
+    <Content Include="Areas\Autor\Views\Autor\_Eliminar.cshtml" />
+    <Content Include="Areas\Autor\Views\Libro\Index.cshtml" />
+    <Content Include="Areas\Autor\Views\Libro\_Crear.cshtml" />
+    <Content Include="Areas\Autor\Views\Libro\_Editar.cshtml" />
+    <Content Include="Areas\Autor\Views\Libro\_Eliminar.cshtml" />
+    <Content Include="Areas\Autor\Views\Libro\_Lista.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

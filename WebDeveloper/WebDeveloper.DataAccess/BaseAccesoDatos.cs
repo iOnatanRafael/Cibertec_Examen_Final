@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace WebDeveloper.DataAccess
 {
-    public class BaseDataAccess<T> : IDataAccess<T> where T : class
+    public class BaseAccesoDatos<T> : IAccesoDatos<T> where T : class
     {
-        public int Add(T entity)
+        public int Adicionar(T entity)
         {
             using (var dbContext = new WebContextDb())
             {
@@ -16,7 +16,7 @@ namespace WebDeveloper.DataAccess
             }
         }
 
-        public int Delete(T entity)
+        public int Eliminar(T entity)
         {
             using (var dbContext = new WebContextDb())
             {
@@ -25,7 +25,7 @@ namespace WebDeveloper.DataAccess
             }
         }
 
-        public List<T> GetList()
+        public List<T> ObtenerLista()
         {
             using (var dbContext = new WebContextDb())
             {
@@ -33,7 +33,7 @@ namespace WebDeveloper.DataAccess
             }
         }
 
-        public int Update(T entity)
+        public int Actualizar(T entity)
         {
             using (var dbContext = new WebContextDb())
             {
@@ -42,7 +42,7 @@ namespace WebDeveloper.DataAccess
             }
         }
         
-        public int count()
+        public int Contar()
         {
             using (var dbContext = new WebContextDb())
             {

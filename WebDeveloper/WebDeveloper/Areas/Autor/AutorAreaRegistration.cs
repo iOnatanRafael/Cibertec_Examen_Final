@@ -9,13 +9,13 @@ namespace WebDeveloper.Areas.Autor
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Autor_default",
+                "Autor_defecto",
                 "Autor/{action}/{id}",
                 new { controller="Autor", action = "Index", id = UrlParameter.Optional }
             );
 
             context.MapRoute(
-                "Libro_default",
+                "Libro_defecto",
                 "Libro/{action}/{id}",
                 new { controller = "Libro", action = "Index", id = UrlParameter.Optional }
             );
