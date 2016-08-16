@@ -233,6 +233,7 @@
     <Content Include="App_Code\CustomHelpers.cshtml">
       <BrowseToURL>~/App_Code/CustomHelpers.cshtml</BrowseToURL>
     </Content>
+    <Content Include="Areas\Autor\Views\Autor\Index.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -370,7 +371,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Autor\Models\" />
-    <Folder Include="Areas\Autor\Views\Autor\" />
     <Folder Include="Areas\Autor\Views\Shared\" />
     <Folder Include="Areas\Internal\Views\Shared\" />
     <Folder Include="Images\" />
